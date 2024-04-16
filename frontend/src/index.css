@@ -1,0 +1,117 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.logo {
+  size: 20px;
+  color: orange;
+  position: absolute;
+  left: 200px;
+  top: 10px;
+  width: 300px;
+}
+
+.mail {
+  color: black;
+  font-family: sans-serif;
+  text-decoration: none;
+  margin-left: 230px;
+  position: absolute;
+  z-index: 2;
+  margin-top: 10px;
+  width: 300px;
+}
+
+button {
+  gap: 10px;
+  border: none;
+  background-color: rgb(5, 160, 211);
+  color: white;
+  font-size: 18px;
+  font-family: sans-serif;
+  border-radius: 10px;
+  height: 30px;
+  width: 90px;
+}
+
+.button-cont {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 35px;
+  margin-left: 1100px;
+}
+
+.under-line {
+  height: 1.5px;
+  background-color: rgb(108, 103, 103);
+  width: 1090px;
+}
+
+.txt {
+  color: black;
+  font-family: sans-serif;
+  margin-top: 100px;
+  margin-left: 100px;
+  font-size: 25px;
+}
+
+.loginPageCont {
+  margin-left: 600px;
+  margin-top: 250px;
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.Register {
+  border: none;
+  color: purple;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+input {
+  border-radius: 50px;
+  outline: none;
+  width: 220px;
+  height: 30px;
+  padding: 0 30px 0 5px;
+  font-size: 1.1rem;
+}
+
+.RegisterCont {
+  margin-left: 600px;
+  margin-top: 250px;
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.Login {
+  border: none;
+  color: purple;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+.NotfoundTxt{
+  font-family: sans-serif;
+  margin-left: 230px;
+  position: absolute;
+  font-size: 25px;
+  margin-top: 100px;
+}
+
+.Back{
+  font-family: sans-serif;
+  margin-left: 230px;
+  position: absolute;
+  font-size: 18px;
+  margin-top: 140px;
+}
+
+.Home{
+  text-decoration: none;
+  color: purple;
+}
