@@ -1,0 +1,271 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.logo {
+  size: 20px;
+  color: orange;
+  position: absolute;
+  left: 200px;
+  top: 10px;
+  width: 300px;
+}
+
+.mail {
+  color: black;
+  font-family: sans-serif;
+  text-decoration: none;
+  margin-left: 230px;
+  
+  z-index: 2;
+  position: absolute;
+  top: 30px;
+  width: 300px;
+}
+
+button {
+  gap: 10px;
+  border: none;
+  background-color: rgb(5, 160, 211);
+  color: white;
+  font-size: 18px;
+  font-family: sans-serif;
+  border-radius: 10px;
+  height: 30px;
+  width: 90px;
+}
+
+.button-cont {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 35px;
+  margin-left: 1100px;
+}
+
+.under-line {
+  height: 1.5px;
+  background-color: rgb(108, 103, 103);
+  width: 1090px;
+}
+
+.txt {
+  color: black;
+  font-family: sans-serif;
+  margin-top: 100px;
+  margin-left: 100px;
+  font-size: 25px;
+}
+
+.loginPageCont {
+  margin-left: 600px;
+  margin-top: 250px;
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.Register {
+  border: none;
+  color: purple;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+input {
+  border-radius: 50px;
+  outline: none;
+  width: 220px;
+  height: 30px;
+  padding: 0 30px 0 5px;
+  font-size: 1.1rem;
+}
+
+.RegisterCont {
+  margin-left: 600px;
+  margin-top: 150px;
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.Login {
+  border: none;
+  color: purple;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+.NotfoundTxt {
+  font-family: sans-serif;
+  margin-left: 230px;
+  position: absolute;
+  font-size: 25px;
+  margin-top: 100px;
+}
+
+.Back {
+  font-family: sans-serif;
+  margin-left: 230px;
+  position: absolute;
+  font-size: 18px;
+  margin-top: 140px;
+}
+
+.Home {
+  text-decoration: none;
+  color: purple;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.btns {
+  width: 300px;
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 23px;
+  left: 400px;
+}
+
+.btn {
+  background-color: white;
+  border: black 2px solid;
+}
+
+.logout .btn {
+  position: absolute;
+  top: 33px;
+  right: 250px;
+}
+
+.compose-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-box {
+  position: absolute;
+  margin-top: 120px;
+}
+
+.input {
+  height: 40px;
+  width: 600px;
+}
+.input-3 {
+  height: 300px;
+  width: 600px;
+}
+
+.inbox-cont {
+  margin-left: 280px;
+  margin-top: 50px;
+  display: flex;
+
+  border: solid 1px gray;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  height: 30px;
+  width: 966px;
+  align-items: center;
+}
+
+.style-inbox {
+  font-family: sans-serif;
+}
+
+.clear {
+  position: absolute;
+  margin-left: 1145px;
+  margin-top:-45px;
+}
+
+.inbox-title {
+  
+  margin-left: 279px;
+  font-family: sans-serif;
+  margin-top: 100px;
+  font-size: 23px;
+}
+
+.not-found {
+  position: absolute;
+  margin-left: 650px;
+  font-family: sans-serif;
+  margin-top: 200px;
+  font-size: 23px;
+}
+
+.style-inbox3 {
+  position: absolute;
+  right: 280px;
+  font-family: sans-serif;
+}
+
+.style-inbox2 {
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  position: absolute;
+  right: 320px;
+  justify-content: center;
+  align-items: center;
+  width: 859px;
+  cursor: pointer;
+}
+
+
+.inbox-cont2{
+  margin-left: 280px;
+  margin-top: 50px;
+  display: flex;
+  border: solid 1px gray;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  height: 30px;
+  width: 959px;
+  align-items: center;
+}
+
+.archive{
+  margin-left: 140px;
+  position: absolute;
+  margin-top: -38px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  border: solid 2px black;
+}
+
+.unarchive{
+  margin-left: 140px;
+  position: absolute;
+  margin-top: -38px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  border: solid 2px black;
+  width: 100px;
+}
