@@ -4,6 +4,7 @@ import { Home } from "./users/Home";
 
 export const Archive = () => {
     const [archivedEmails, setArchivedEmails] = useState([]);
+    const [emails, setEmails] = useState([]);
 
     const loadArchivedEmails = () => {
       const archive = JSON.parse(localStorage.getItem('archive')) || [];
@@ -19,7 +20,7 @@ export const Archive = () => {
         localStorage.setItem('archive', JSON.stringify(archive)); 
         setArchivedEmails(archive); 
       };
-    
+     
   
     useEffect(() => {
       loadArchivedEmails();
@@ -46,7 +47,7 @@ export const Archive = () => {
           <p className="style-inbox3">
             <p> {formatDate(email.date)}</p><button className="unarchive" onClick={() => unarchiveEmail(index)}>UnArchive</button> 
           </p>
-          
+         
         </div>
       ))
     )}
