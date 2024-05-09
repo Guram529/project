@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 export function RegisterPage() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
 
   const handleUsernameChange = (e) => {
@@ -27,42 +28,54 @@ export function RegisterPage() {
     validateConfirmPassword(e.target.value);
   };
 
-
-
-  
   const validateUsername = (value) => {
     const usernamePattern = /^[a-zA-Z]+$/;
     if (!value.trim()) {
-      setErrors((prevErrors) => ({ ...prevErrors, username: 'Please enter a username.' }));
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        username: "Please enter a username.",
+      }));
     } else if (!usernamePattern.test(value)) {
-      setErrors((prevErrors) => ({ ...prevErrors, username: 'Username must contain only letters.' }));
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        username: "Username must contain only letters.",
+      }));
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, username: '' }));
+      setErrors((prevErrors) => ({ ...prevErrors, username: "" }));
     }
   };
 
   const validateEmail = (value) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(value)) {
-      setErrors((prevErrors) => ({ ...prevErrors, email: 'Please enter a valid email address.' }));
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: "Please enter a valid email address.",
+      }));
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, email: '' }));
+      setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
     }
   };
 
   const validatePassword = (value) => {
     if (value.length < 8) {
-      setErrors((prevErrors) => ({ ...prevErrors, password: 'Password must be at least 8 characters long.' }));
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        password: "Password must be at least 8 characters long.",
+      }));
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, password: '' }));
+      setErrors((prevErrors) => ({ ...prevErrors, password: "" }));
     }
   };
 
   const validateConfirmPassword = (value) => {
     if (value !== password) {
-      setErrors((prevErrors) => ({ ...prevErrors, confirmPassword: 'Passwords do not match.' }));
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        confirmPassword: "Passwords do not match.",
+      }));
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, confirmPassword: '' }));
+      setErrors((prevErrors) => ({ ...prevErrors, confirmPassword: "" }));
     }
   };
 
@@ -75,7 +88,7 @@ export function RegisterPage() {
     validatePassword(password);
     validateConfirmPassword(confirmPassword);
 
-    if (Object.values(errors).some((error) => error !== '')) {
+    if (Object.values(errors).some((error) => error !== "")) {
       return;
     }
 
@@ -83,17 +96,26 @@ export function RegisterPage() {
       username,
       email,
       password,
-      confirmPassword
+      confirmPassword,
     });
 
-    setUsername('');
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
     setErrors({});
   };
 
-  const isDisabled = Object.values(errors).some((error) => error !== '');
+  const isValid = () => {
+    return (
+      email &&
+      !errors.email &&
+      password.length >= 8 &&
+      !errors.password &&
+      confirmPassword === password &&
+      !errors.confirmPassword
+    );
+  };
 
   return (
     <div className="RegisterCont">
@@ -102,13 +124,13 @@ export function RegisterPage() {
         <div>
           <label>Username:</label>
           <input type="text" value={username} onChange={handleUsernameChange} />
-          {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
+          {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
         </div>
         <br />
         <div>
           <label>Email:</label>
           <input type="email" value={email} onChange={handleEmailChange} />
-          {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
+          {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
         </div>
         <br />
         <div>
@@ -119,7 +141,7 @@ export function RegisterPage() {
             onChange={handlePasswordChange}
           />
         </div>
-        {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+        {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
 
         <br />
         <div>
@@ -129,16 +151,27 @@ export function RegisterPage() {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          {errors.confirmPassword && <p style={{ color: 'red' }}>{errors.confirmPassword}</p>}
-
+          {errors.confirmPassword && (
+            <p style={{ color: "red" }}>{errors.confirmPassword}</p>
+          )}
         </div>
         <br />
         <div className="box">
-           <p className="accountTxt">Or if you have an Account </p> <a className="link" href="/login">Log in</a>
-           {!isDisabled && <button type="submit">Register</button>}
+          <p className="accountTxt">Or if you have an Account </p>{" "}
+          <a className="link" href="/login">
+            Log in
+          </a>
+          <div className="register-button-container">
+            <button type="submit" className="register-button">
+              <a className="link" href="/login">
+                Register
+              </a>
+            </button>
+            {!isValid() && <div className="overlay"></div>}
+          </div>
         </div>
-       
       </form>
     </div>
   );
 }
+
