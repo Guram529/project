@@ -26,15 +26,21 @@ export function Sent() {
     localStorage.removeItem("inbox");
     setEmails([]);
   };
+  const deleteEmail = (index) => {
+    const inbox = [...emails]; 
+    inbox.splice(index, 1); 
+    localStorage.setItem('inbox', JSON.stringify(inbox)); 
+    setEmails(inbox);
+  };
 
   const archiveEmail = (index) => {
     const inbox = [...emails];
     const archivedEmail = inbox.splice(index, 1)[0];
-    const archive = JSON.parse(localStorage.getItem('archive')) || [];
-    archive.push(archivedEmail); 
-    localStorage.setItem('archive', JSON.stringify(archive)); 
-    localStorage.setItem('inbox', JSON.stringify(inbox));
-    setEmails(inbox); 
+    const archive = JSON.parse(localStorage.getItem("archive")) || [];
+    archive.push(archivedEmail);
+    localStorage.setItem("archive", JSON.stringify(archive));
+    localStorage.setItem("inbox", JSON.stringify(inbox));
+    setEmails(inbox);
   };
 
   useEffect(() => {
@@ -42,7 +48,6 @@ export function Sent() {
   }, []);
 
   return (
-    
     <div>
       <Home />
       <p className="inbox-title">Inbox</p>
@@ -55,7 +60,6 @@ export function Sent() {
         emails.map((email, index) => (
           <div className="inbox-cont" key={index}>
             <p className="style-inbox">
-              
               To: <b>{email.recipient}</b>
             </p>
             <div className="style-inbox2">
@@ -63,8 +67,15 @@ export function Sent() {
             </div>
             <p className="style-inbox3">
               <p> {formatDate(email.date)}</p>
-              <button className="archive" onClick={() => archiveEmail(index)}>Archive</button>
-            </p>         
+
+              <button className="archive" onClick={() => archiveEmail(index)}>
+                Archive
+              </button>
+            </p>
+            <div onClick={deleteEmail} className="trash">
+              <i className="bi bi-trash" id="trash"></i>
+            </div>
+            
           </div>
         ))
       )}
