@@ -59,7 +59,13 @@ export function LoginPage() {
 
   
 
-  const isDisabled = Object.values(errors).some((error) => error !== '');
+const isValid = () => {
+    return (
+      email &&
+      !errors.email &&
+      password.length >= 8 
+    );
+  };  
   return (
     <div className='loginPageCont'>
       <h2>Login</h2>
@@ -78,7 +84,14 @@ export function LoginPage() {
         <div className="box">
            <p className="accountTxt">Didn't have an Account? </p> <a className="link" href="/register">Register</a>
            
-           {!isDisabled && <button type="submit"><a className='link' href="/home">Log in</a></button>}
+           <div className="register-button-container">
+            <button type="submit" className="register-button">
+              <a className="link" href="/home">
+                Log in
+              </a>
+            </button>
+            {!isValid() && <div className="overlay"></div>}
+          </div>
         </div>
       </form>
     </div>
