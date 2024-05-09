@@ -219,7 +219,8 @@ input {
 
 .style-inbox3 {
   position: absolute;
-  right: 280px;
+  right: 330px;
+  
   font-family: sans-serif;
 }
 
@@ -250,9 +251,9 @@ input {
 }
 
 .archive{
-  margin-left: 140px;
+  margin-left: 190px;
   position: absolute;
-  margin-top: -38px;
+  margin-top: -41px;
   color: black;
   background-color: white;
   cursor: pointer;
@@ -262,10 +263,48 @@ input {
 .unarchive{
   margin-left: 140px;
   position: absolute;
-  margin-top: -38px;
+  margin-top: -41px;
   color: black;
   background-color: white;
   cursor: pointer;
   border: solid 2px black;
   width: 100px;
+}
+
+.register-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.register-button {
+  z-index: 1; 
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.5); 
+  z-index: 2; 
+  cursor: not-allowed;
+}
+
+#trash{
+  color: red;
+  font-size: 22px;
+  
+}
+.trash{
+  border-radius: 5px;
+  border: solid 1px red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 290px;
+ cursor: pointer;
 }
