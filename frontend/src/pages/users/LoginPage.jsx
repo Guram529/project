@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
+
 
 export function LoginPage() {
   const [email, setEmail] = useState('');
@@ -86,9 +88,9 @@ const isValid = () => {
            
            <div className="register-button-container">
             <button type="submit" className="register-button">
-              <a className="link" href="/home">
+              <NavLink className="link" href="/home">
                 Log in
-              </a>
+              </NavLink>
             </button>
             {!isValid() && <div className="overlay"></div>}
           </div>
@@ -97,4 +99,5 @@ const isValid = () => {
     </div>
   );
 }
+
 
