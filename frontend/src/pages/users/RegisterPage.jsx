@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 export function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
-
- 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -23,8 +22,6 @@ export function RegisterPage() {
     setConfirmPassword(e.target.value);
     validateConfirmPassword(e.target.value);
   };
-
- 
 
   const validateEmail = (value) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -73,7 +70,6 @@ export function RegisterPage() {
     }
 
     console.log({
-     
       email,
       password,
       confirmPassword,
@@ -100,7 +96,7 @@ export function RegisterPage() {
     <div className="RegisterCont">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
-        
+        <br />
         <div>
           <label>Email:</label>
           <input type="email" value={email} onChange={handleEmailChange} />
@@ -132,14 +128,14 @@ export function RegisterPage() {
         <br />
         <div className="box">
           <p className="accountTxt">Or if you have an Account </p>{" "}
-          <a className="link" href="/login">
+          <NavLink className="link" to="/login">
             Log in
-          </a>
+          </NavLink>
           <div className="register-button-container">
             <button type="submit" className="register-button">
-              <a className="link" href="/login">
+              <NavLink className="link" to="/login">
                 Register
-              </a>
+              </NavLink>
             </button>
             {!isValid() && <div className="overlay"></div>}
           </div>
@@ -148,3 +144,4 @@ export function RegisterPage() {
     </div>
   );
 }
+
