@@ -2,16 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export function RegisterPage() {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-    validateUsername(e.target.value);
-  };
+ 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -28,22 +24,7 @@ export function RegisterPage() {
     validateConfirmPassword(e.target.value);
   };
 
-  const validateUsername = (value) => {
-    const usernamePattern = /^[a-zA-Z]+$/;
-    if (!value.trim()) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        username: "Please enter a username.",
-      }));
-    } else if (!usernamePattern.test(value)) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        username: "Username must contain only letters.",
-      }));
-    } else {
-      setErrors((prevErrors) => ({ ...prevErrors, username: "" }));
-    }
-  };
+ 
 
   const validateEmail = (value) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -83,7 +64,6 @@ export function RegisterPage() {
     e.preventDefault();
 
     const formErrors = {};
-    validateUsername(username);
     validateEmail(email);
     validatePassword(password);
     validateConfirmPassword(confirmPassword);
@@ -93,13 +73,12 @@ export function RegisterPage() {
     }
 
     console.log({
-      username,
+     
       email,
       password,
       confirmPassword,
     });
 
-    setUsername("");
     setEmail("");
     setPassword("");
     setConfirmPassword("");
@@ -121,12 +100,7 @@ export function RegisterPage() {
     <div className="RegisterCont">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input type="text" value={username} onChange={handleUsernameChange} />
-          {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
-        </div>
-        <br />
+        
         <div>
           <label>Email:</label>
           <input type="email" value={email} onChange={handleEmailChange} />
@@ -174,4 +148,3 @@ export function RegisterPage() {
     </div>
   );
 }
-
